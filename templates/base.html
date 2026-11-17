@@ -13,6 +13,9 @@
 
 <body>
 
+    <a href="{% url 'core:home' %}"><button>Início</button></a>
+    <a href="{% url 'atracao:list_atracoes' %}"><button>Atrações</button></a>
+
     {% block body %}
 
     {% endblock body %}
