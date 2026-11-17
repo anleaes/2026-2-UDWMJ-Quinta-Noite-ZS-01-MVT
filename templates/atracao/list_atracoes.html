@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lista de Atrações - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'atracao:add_atracao' %}">Cadastro de nova atração</a>
+<br />
+<br />
+<b>Lista de Atrações</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Cachê</th>
+            <th>Foto</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for atracao in atracoes %}
+        <tr>
+            <td>{{ atracao.id }}</td>
+            <td>{{ atracao.nome }}</td>
+            <td>{{ atracao.descricao }}</td>
+            <td>{{ atracao.cache }}</td>
+            <td>
+                <img src="{{ atracao.foto.url }}" width="80">
+            </td>
+            <td>
+                <a href="{% url 'atracao:edit_atracao' atracao.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'atracao:delete_atracao' atracao.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
