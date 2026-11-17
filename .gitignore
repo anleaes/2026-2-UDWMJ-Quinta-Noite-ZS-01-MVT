@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+db.sqlite3
+.vscode/
+Wallet_*
+media/photos/*
+media/docs/*
+!media/photos/.gitkeep
+!media/docs/.gitkeep
+/apps/core/__pycache__/*
+/apps/core/migrations/*
