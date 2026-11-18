@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
     'atracao.apps.AtracaoConfig',
+    'organizador.apps.OrganizadorConfig',
 ]
 
 MIDDLEWARE = [

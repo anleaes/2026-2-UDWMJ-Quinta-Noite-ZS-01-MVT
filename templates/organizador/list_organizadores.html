@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lista de Organizadores - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'organizador:add_organizador' %}">Cadastro de novo organizador</a>
+<br />
+<br />
+<b>Lista de Organizadores</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Logo</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for organizador in organizadores %}
+        <tr>
+            <td>{{ organizador.id }}</td>
+            <td>{{ organizador.nome }}</td>
+            <td>{{ organizador.email }}</td>
+            <td>{{ organizador.telefone }}</td>
+            <td>
+                <img src="{{ organizador.logo.url }}" width="80">
+            </td>
+            <td>
+                <a href="{% url 'organizador:edit_organizador' organizador.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'organizador:delete_organizador' organizador.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
