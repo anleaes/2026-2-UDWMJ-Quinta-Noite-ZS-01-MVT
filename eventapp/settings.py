@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'organizador.apps.OrganizadorConfig',
     'local.apps.LocalConfig',
     'setor.apps.SetorConfig',
+    'evento.apps.EventoConfig',
+    'cupom.apps.CupomConfig',
+    'lote.apps.LoteConfig',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Adicionar Evento - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Cadastro de Evento</b>
+<br />
+<br />
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Organizador</label>
+    <br />
+    {{ form.organizador }}
+    <br />
+    <br />
+    <label>Local</label>
+    <br />
+    {{ form.local }}
+    <br />
+    <br />
+    <label>Atrações</label>
+    <br />
+    {{ form.atracoes }}
+    <br />
+    <br />
+    <label>Título</label>
+    <br />
+    {{ form.titulo }}
+    <br />
+    <br />
+    <label>Descrição</label>
+    <br />
+    {{ form.descricao }}
+    <br />
+    <br />
+    <label>Data de início</label>
+    <br />
+    {{ form.data_inicio }}
+    <br />
+    <br />
+    <label>Banner</label>
+    <br />
+    {{ form.banner }}
+    <br />
+    <br />
+    <label>Publicado</label>
+    <br />
+    {{ form.publicado }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+</form>
+
+{% endblock body %}

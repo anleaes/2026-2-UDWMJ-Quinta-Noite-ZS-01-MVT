@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Adicionar Lote - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Cadastro de Lote</b>
+<br />
+<br />
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Evento</label>
+    <br />
+    {{ form.evento }}
+    <br />
+    <br />
+    <label>Setor</label>
+    <br />
+    {{ form.setor }}
+    <br />
+    <br />
+    <label>Preço</label>
+    <br />
+    {{ form.preco }}
+    <br />
+    <br />
+    <label>Quantidade</label>
+    <br />
+    {{ form.quantidade }}
+    <br />
+    <br />
+    <label>Vendidos</label>
+    <br />
+    {{ form.vendidos }}
+    <br />
+    <br />
+    <label>Ativo</label>
+    <br />
+    {{ form.ativo }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+</form>
+
+{% endblock body %}
