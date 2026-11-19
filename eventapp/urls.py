@@ -24,6 +24,7 @@ urlpatterns = [
     path('atracao/', include('atracao.urls', namespace='atracao')),
     path('organizador/', include('organizador.urls', namespace='organizador')),
     path('local/', include('local.urls', namespace='local')),
+    path('evento/', include('evento.urls', namespace='evento')),
     path('', include('core.urls', namespace='core')),
     path('setor/', include('setor.urls', namespace='setor')),
 ]
