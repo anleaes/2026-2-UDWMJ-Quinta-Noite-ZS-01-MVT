@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'atracao.apps.AtracaoConfig',
     'organizador.apps.OrganizadorConfig',
     'local.apps.LocalConfig',
+    'setor.apps.SetorConfig',
 ]
 
 MIDDLEWARE = [
@@ -116,6 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
 LANGUAGE_CODE = 'pt-br'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
