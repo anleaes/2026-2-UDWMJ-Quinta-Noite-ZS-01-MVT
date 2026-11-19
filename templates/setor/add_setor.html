@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Adicionar Setor - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Cadastro de Setor</b>
+<br />
+<br />
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Local</label>
+    <br />
+    {{ form.local }}
+    <br />
+    <br />
+    <label>Nome</label>
+    <br />
+    {{ form.nome }}
+    <br />
+    <br />
+    <label>Capacidade</label>
+    <br />
+    {{ form.capacidade }}
+    <br />
+    <br />
+    <label>Coberto</label>
+    <br />
+    {{ form.coberto }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+</form>
+
+{% endblock body %}

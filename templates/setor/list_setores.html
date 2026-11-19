@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lista de Setores - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'setor:add_setor' %}">Cadastro de novo setor</a>
+<br />
+<br />
+<b>Lista de Setores</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Local</th>
+            <th>Nome</th>
+            <th>Capacidade</th>
+            <th>Coberto</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for setor in setores %}
+        <tr>
+            <td>{{ setor.id }}</td>
+            <td>{{ setor.local }}</td>
+            <td>{{ setor.nome }}</td>
+            <td>{{ setor.capacidade }}</td>
+            <td>
+                {% if setor.coberto == True %}
+                Coberto
+                {% endif %}
+                {% if setor.coberto == False %}
+                Descoberto
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'setor:edit_setor' setor.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'setor:delete_setor' setor.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
