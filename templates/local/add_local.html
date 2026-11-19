@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Adicionar Local - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Cadastro de Local</b>
+<br />
+<br />
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Nome</label>
+    <br />
+    {{ form.nome }}
+    <br />
+    <br />
+    <label>Endereço</label>
+    <br />
+    {{ form.endereco }}
+    <br />
+    <br />
+    <label>Capacidade total</label>
+    <br />
+    {{ form.capacidade_total }}
+    <br />
+    <br />
+    <label>Mapa</label>
+    <br />
+    {{ form.mapa }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+</form>
+
+{% endblock body %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lista de Locais - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'local:add_local' %}">Cadastro de novo local</a>
+<br />
+<br />
+<b>Lista de Locais</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Capacidade total</th>
+            <th>Mapa</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for local in locais %}
+        <tr>
+            <td>{{ local.id }}</td>
+            <td>{{ local.nome }}</td>
+            <td>{{ local.endereco }}</td>
+            <td>{{ local.capacidade_total }}</td>
+            <td>
+                <img src="{{ local.mapa.url }}" width="80">
+            </td>
+            <td>
+                <a href="{% url 'local:edit_local' local.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'local:delete_local' local.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
