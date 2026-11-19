@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'atracao.apps.AtracaoConfig',
     'organizador.apps.OrganizadorConfig',
+    'local.apps.LocalConfig',
 ]
 
 MIDDLEWARE = [
