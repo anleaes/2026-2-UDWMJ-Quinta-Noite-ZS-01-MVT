@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'setor.apps.SetorConfig',
     'evento.apps.EventoConfig',
     'cupom.apps.CupomConfig',
+    'lote.apps.LoteConfig',
 ]
 
 MIDDLEWARE = [
