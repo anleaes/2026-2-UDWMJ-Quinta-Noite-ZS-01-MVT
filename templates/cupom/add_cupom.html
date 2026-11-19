@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Adicionar Cupom - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Cadastro de Cupom</b>
+<br />
+<br />
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Evento</label>
+    <br />
+    {{ form.evento }}
+    <br />
+    <br />
+    <label>Código</label>
+    <br />
+    {{ form.codigo }}
+    <br />
+    <br />
+    <label>Percentual de desconto</label>
+    <br />
+    {{ form.percentual_desconto }}
+    <br />
+    <br />
+    <label>Validade</label>
+    <br />
+    {{ form.validade }}
+    <br />
+    <br />
+    <label>Ativo</label>
+    <br />
+    {{ form.ativo }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+</form>
+
+{% endblock body %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lista de Cupons - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'cupom:add_cupom' %}">Cadastro de novo cupom</a>
+<br />
+<br />
+<b>Lista de Cupons</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Evento</th>
+            <th>Código</th>
+            <th>Percentual de desconto</th>
+            <th>Validade</th>
+            <th>Ativo</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cupom in cupons %}
+        <tr>
+            <td>{{ cupom.id }}</td>
+            <td>{{ cupom.evento }}</td>
+            <td>{{ cupom.codigo }}</td>
+            <td>{{ cupom.percentual_desconto }}</td>
+            <td>{{ cupom.validade }}</td>
+            <td>
+                {% if cupom.ativo == True %}
+                Ativo
+                {% endif %}
+                {% if cupom.ativo == False %}
+                Inativo
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'cupom:edit_cupom' cupom.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'cupom:delete_cupom' cupom.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
