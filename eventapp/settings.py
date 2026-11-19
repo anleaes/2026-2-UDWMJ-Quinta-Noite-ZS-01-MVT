@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'evento.apps.EventoConfig',
     'cupom.apps.CupomConfig',
     'lote.apps.LoteConfig',
+    'participante.apps.ParticipanteConfig',
 ]
 
 MIDDLEWARE = [
