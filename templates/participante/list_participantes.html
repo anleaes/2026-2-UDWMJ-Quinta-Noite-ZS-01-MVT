@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lista de Participantes - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'participante:add_participante' %}">Cadastro de novo participante</a>
+<br />
+<br />
+<b>Lista de Participantes</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>E-mail</th>
+            <th>Data de nascimento</th>
+            <th>Foto</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for participante in participantes %}
+        <tr>
+            <td>{{ participante.id }}</td>
+            <td>{{ participante.nome }}</td>
+            <td>{{ participante.cpf }}</td>
+            <td>{{ participante.email }}</td>
+            <td>{{ participante.data_nascimento|date:"d/m/Y" }}</td>
+            <td>
+                <img src="{{ participante.foto.url }}" width="80">
+            </td>
+            <td>
+                <a href="{% url 'participante:edit_participante' participante.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'participante:delete_participante' participante.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}

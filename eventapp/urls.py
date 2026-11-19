@@ -29,5 +29,6 @@ urlpatterns = [
     path('lote/', include('lote.urls', namespace='lote')),
     path('', include('core.urls', namespace='core')),
     path('setor/', include('setor.urls', namespace='setor')),
+    path('participante/', include('participante.urls', namespace='participante')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
