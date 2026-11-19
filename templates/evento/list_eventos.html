@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lista de Eventos - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'evento:add_evento' %}">Cadastro de novo evento</a>
+<br />
+<br />
+<b>Lista de Eventos</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Organizador</th>
+            <th>Local</th>
+            <th>Atrações</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data de início</th>
+            <th>Banner</th>
+            <th>Publicado</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for evento in eventos %}
+        <tr>
+            <td>{{ evento.id }}</td>
+            <td>{{ evento.organizador }}</td>
+            <td>{{ evento.local }}</td>
+            <td>
+                <ul>
+                    {% for atracao in evento.atracoes.all %}
+                    <li>{{ atracao.nome }}</li>
+                    {% empty %}
+                    <li>Sem atrações</li>
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>{{ evento.titulo }}</td>
+            <td>{{ evento.descricao }}</td>
+            <td>{{ evento.data_inicio }}</td>
+            <td>
+                <img src="{{ evento.banner.url }}" width="80">
+            </td>
+            <td>
+                {% if evento.publicado == True %}
+                Publicado
+                {% endif %}
+                {% if evento.publicado == False %}
+                Não publicado
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'evento:edit_evento' evento.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'evento:delete_evento' evento.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
