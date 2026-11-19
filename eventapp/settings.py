@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'atracao.apps.AtracaoConfig',
     'organizador.apps.OrganizadorConfig',
     'local.apps.LocalConfig',
+    'evento.apps.EventoConfig',
 ]
 
 MIDDLEWARE = [
