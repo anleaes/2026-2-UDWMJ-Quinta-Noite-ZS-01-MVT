@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lista de Pedidos - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'pedido:add_pedido' %}">Cadastro de novo pedido</a>
+<br />
+<br />
+<b>Lista de Pedidos</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Participante</th>
+            <th>Cupom</th>
+            <th>Data do pedido</th>
+            <th>Valor total</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pedido in pedidos %}
+        <tr>
+            <td>{{ pedido.id }}</td>
+            <td>{{ pedido.participante }}</td>
+            <td>{{ pedido.cupom|default:"Sem cupom" }}</td>
+            <td>{{ pedido.data_pedido }}</td>
+            <td>{{ pedido.valor_total }}</td>
+            <td>{{ pedido.get_status_display }}</td>
+            <td>
+                <a href="{% url 'pedido:edit_pedido' pedido.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'pedido:delete_pedido' pedido.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
