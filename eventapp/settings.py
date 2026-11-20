@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'lote.apps.LoteConfig',
     'participante.apps.ParticipanteConfig',
     'pedido.apps.PedidoConfig',
+    'pagamento.apps.PagamentoConfig',
 ]
 
 MIDDLEWARE = [

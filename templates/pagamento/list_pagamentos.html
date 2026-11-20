@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lista de Pagamentos - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'pagamento:add_pagamento' %}">Cadastro de novo pagamento</a>
+<br />
+<br />
+<b>Lista de Pagamentos</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Pedido</th>
+            <th>Método</th>
+            <th>Valor</th>
+            <th>Aprovado</th>
+            <th>Comprovante</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pagamento in pagamentos %}
+        <tr>
+            <td>{{ pagamento.id }}</td>
+            <td>{{ pagamento.pedido }}</td>
+            <td>{{ pagamento.get_metodo_display }}</td>
+            <td>{{ pagamento.valor }}</td>
+            <td>
+                {% if pagamento.aprovado == True %}
+                Aprovado
+                {% endif %}
+                {% if pagamento.aprovado == False %}
+                Pendente
+                {% endif %}
+            </td>
+            <td>
+                {% if pagamento.comprovante %}
+                <a href="{{ pagamento.comprovante.url }}">Ver arquivo</a>
+                {% else %}
+                Sem arquivo
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'pagamento:edit_pagamento' pagamento.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'pagamento:delete_pagamento' pagamento.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}

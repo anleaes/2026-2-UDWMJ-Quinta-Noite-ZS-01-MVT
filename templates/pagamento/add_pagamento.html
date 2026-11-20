@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Adicionar Pagamento - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Cadastro de Pagamento</b>
+<br />
+<br />
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Pedido</label>
+    <br />
+    {{ form.pedido }}
+    <br />
+    <br />
+    <label>Método</label>
+    <br />
+    {{ form.metodo }}
+    <br />
+    <br />
+    <label>Valor</label>
+    <br />
+    {{ form.valor }}
+    <br />
+    <br />
+    <label>Aprovado</label>
+    <br />
+    {{ form.aprovado }}
+    <br />
+    <br />
+    <label>Comprovante</label>
+    <br />
+    {{ form.comprovante }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+</form>
+
+{% endblock body %}
