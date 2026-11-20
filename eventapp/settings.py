@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'cupom.apps.CupomConfig',
     'lote.apps.LoteConfig',
     'participante.apps.ParticipanteConfig',
+    'pedido.apps.PedidoConfig',
 ]
 
 MIDDLEWARE = [
