@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Adicionar Ingresso - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Cadastro de Ingresso</b>
+<br />
+<br />
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Pedido</label>
+    <br />
+    {{ form.pedido }}
+    <br />
+    <br />
+    <label>Lote</label>
+    <br />
+    {{ form.lote }}
+    <br />
+    <br />
+    <label>Código</label>
+    <br />
+    {{ form.codigo }}
+    <br />
+    <br />
+    <label>Valor</label>
+    <br />
+    {{ form.valor }}
+    <br />
+    <br />
+    <label>Meia entrada</label>
+    <br />
+    {{ form.meia_entrada }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+</form>
+
+{% endblock body %}

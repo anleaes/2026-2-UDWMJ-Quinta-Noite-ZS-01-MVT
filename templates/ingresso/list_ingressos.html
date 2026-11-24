@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lista de Ingressos - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'ingresso:add_ingresso' %}">Cadastro de novo ingresso</a>
+<br />
+<br />
+<b>Lista de Ingressos</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Pedido</th>
+            <th>Lote</th>
+            <th>Código</th>
+            <th>Valor</th>
+            <th>Meia entrada</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ingresso in ingressos %}
+        <tr>
+            <td>{{ ingresso.id }}</td>
+            <td>{{ ingresso.pedido }}</td>
+            <td>{{ ingresso.lote }}</td>
+            <td>{{ ingresso.codigo }}</td>
+            <td>{{ ingresso.valor }}</td>
+            <td>
+                {% if ingresso.meia_entrada == True %}
+                Meia entrada
+                {% endif %}
+                {% if ingresso.meia_entrada == False %}
+                Inteira
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'ingresso:edit_ingresso' ingresso.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'ingresso:delete_ingresso' ingresso.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
