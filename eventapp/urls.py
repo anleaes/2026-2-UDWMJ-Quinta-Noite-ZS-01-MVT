@@ -32,5 +32,6 @@ urlpatterns = [
     path('participante/', include('participante.urls', namespace='participante')),
     path('pedido/', include('pedido.urls', namespace='pedido')),
     path('pagamento/', include('pagamento.urls', namespace='pagamento')),
+    path('ingresso/', include('ingresso.urls', namespace='ingresso')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
