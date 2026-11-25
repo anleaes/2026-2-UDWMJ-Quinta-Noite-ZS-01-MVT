@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'pedido.apps.PedidoConfig',
     'pagamento.apps.PagamentoConfig',
     'ingresso.apps.IngressoConfig',
+    'checkin.apps.CheckInConfig',
 ]
 
 MIDDLEWARE = [
