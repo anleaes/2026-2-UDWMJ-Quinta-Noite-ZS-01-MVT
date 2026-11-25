@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lista de Check-ins - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'checkin:add_checkin' %}">Cadastro de novo check-in</a>
+<br />
+<br />
+<b>Lista de Check-ins</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ingresso</th>
+            <th>Data e hora</th>
+            <th>Portão</th>
+            <th>Observação</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for checkin in checkins %}
+        <tr>
+            <td>{{ checkin.id }}</td>
+            <td>{{ checkin.ingresso }}</td>
+            <td>{{ checkin.data_hora }}</td>
+            <td>{{ checkin.portao }}</td>
+            <td>{{ checkin.observacao }}</td>
+            <td>
+                <a href="{% url 'checkin:edit_checkin' checkin.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'checkin:delete_checkin' checkin.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
