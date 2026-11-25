@@ -33,5 +33,6 @@ urlpatterns = [
     path('pedido/', include('pedido.urls', namespace='pedido')),
     path('pagamento/', include('pagamento.urls', namespace='pagamento')),
     path('ingresso/', include('ingresso.urls', namespace='ingresso')),
+    path('checkin/', include('checkin.urls', namespace='checkin')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
