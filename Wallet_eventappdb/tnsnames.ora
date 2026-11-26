@@ -1,0 +1,12 @@
+eventappdb_high = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=g66cb65e3042f8d_eventappdb_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+eventappdb_medium = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=g66cb65e3042f8d_eventappdb_medium.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+eventappdb_low = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=g66cb65e3042f8d_eventappdb_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+eventappdb_tp = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=g66cb65e3042f8d_eventappdb_tp.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+eventappdb_tpurgent = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=g66cb65e3042f8d_eventappdb_tpurgent.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+
+
