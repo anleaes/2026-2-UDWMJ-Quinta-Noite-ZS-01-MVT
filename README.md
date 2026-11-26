@@ -50,21 +50,20 @@ O diagrama de classes está em [`docs/diagrama.md`](docs/diagrama.md).
    conda activate eventapp
    pip install -r requirements.txt
    ```
-3. Crie o arquivo `.env` a partir do exemplo e preencha com os seus dados:
+3. Configure o banco de dados. O repositório já traz o arquivo `.env` e a pasta `Wallet_eventappdb` (wallet do Oracle). Abra o `.env` e ajuste o `TNS_ADMIN` para o caminho da pasta `Wallet_eventappdb` no seu computador, por exemplo:
    ```
-   copy .env.example .env
+   TNS_ADMIN=C:\projeto\Wallet_eventappdb
    ```
-   Variáveis: `SECRET_KEY`, `DEBUG`, `TNS_NAME`, `DB_USER`, `DB_PASSWORD`, `TNS_ADMIN` e `WALLET_PASSWORD`.
-4. Coloque a pasta do wallet do Oracle no computador e aponte o `TNS_ADMIN` para ela.
-5. Crie as tabelas e rode o servidor:
+   Variáveis do `.env`: `SECRET_KEY`, `DEBUG`, `TNS_NAME`, `DB_USER`, `DB_PASSWORD`, `TNS_ADMIN` e `WALLET_PASSWORD`. O arquivo `.env.example` mostra o formato.
+4. Rode o servidor (o banco é compartilhado e as tabelas já existem):
    ```
-   python manage.py migrate
-   python manage.py createsuperuser
    python manage.py runserver
    ```
-6. Acesse `http://127.0.0.1:8000/`.
+5. Acesse `http://127.0.0.1:8000/`.
 
-> O `.env` e o wallet **não** são enviados ao Git.
+> Se aparecer o erro `ORA-00942: table or view does not exist`, rode `python manage.py migrate` para criar as tabelas que faltam.
+
+> **Atenção:** o `.env` e o wallet estão no repositório por orientação do professor, para o grupo usar o mesmo banco. Em um projeto real, esses arquivos não devem ser versionados.
 
 ## Estrutura do projeto
 
@@ -75,6 +74,8 @@ staticfiles/   css e js
 media/         arquivos enviados (fotos e documentos)
 docs/          documentação e diagrama de classes
 eventapp/      configurações do projeto
+Wallet_eventappdb/   wallet do banco Oracle
+.env           configurações e credenciais do banco
 ```
 
 ## Fluxo de trabalho
