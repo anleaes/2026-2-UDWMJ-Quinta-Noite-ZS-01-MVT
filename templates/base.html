@@ -7,29 +7,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}EventApp{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/arquivo_com_estilos.css' %}">
-    <title>{% block title %}Nome do meu App{% endblock title %}</title>
 </head>
 
 <body>
 
-    <a href="{% url 'core:home' %}"><button>Início</button></a>
-    <a href="{% url 'atracao:list_atracoes' %}"><button>Atrações</button></a>
-    <a href="{% url 'organizador:list_organizadores' %}"><button>Organizadores</button></a>
-    <a href="{% url 'local:list_locais' %}"><button>Locais</button></a>
-    <a href="{% url 'setor:list_setores' %}"><button>Setores</button></a>
-    <a href="{% url 'evento:list_eventos' %}"><button>Eventos</button></a>
-    <a href="{% url 'cupom:list_cupons' %}"><button>Cupons</button></a>
-    <a href="{% url 'lote:list_lotes' %}"><button>Lotes</button></a>
-    <a href="{% url 'participante:list_participantes' %}"><button>Participantes</button></a>
-    <a href="{% url 'pedido:list_pedidos' %}"><button>Pedidos</button></a>
-    <a href="{% url 'pagamento:list_pagamentos' %}"><button>Pagamentos</button></a>
-    <a href="{% url 'ingresso:list_ingressos' %}"><button>Ingressos</button></a>
-    <a href="{% url 'checkin:list_checkins' %}"><button>Check-ins</button></a>
+    <nav>
+        <a href="{% url 'core:home' %}"><button>Início</button></a>
+        <a href="{% url 'atracao:list_atracoes' %}"><button>Atrações</button></a>
+        <a href="{% url 'organizador:list_organizadores' %}"><button>Organizadores</button></a>
+        <a href="{% url 'local:list_locais' %}"><button>Locais</button></a>
+        <a href="{% url 'setor:list_setores' %}"><button>Setores</button></a>
+        <a href="{% url 'evento:list_eventos' %}"><button>Eventos</button></a>
+        <a href="{% url 'cupom:list_cupons' %}"><button>Cupons</button></a>
+        <a href="{% url 'lote:list_lotes' %}"><button>Lotes</button></a>
+        <a href="{% url 'participante:list_participantes' %}"><button>Participantes</button></a>
+        <a href="{% url 'pedido:list_pedidos' %}"><button>Pedidos</button></a>
+        <a href="{% url 'pagamento:list_pagamentos' %}"><button>Pagamentos</button></a>
+        <a href="{% url 'ingresso:list_ingressos' %}"><button>Ingressos</button></a>
+        <a href="{% url 'checkin:list_checkins' %}"><button>Check-ins</button></a>
+    </nav>
 
-    {% block body %}
+    <main>
+        {% block body %}
 
-    {% endblock body %}
+        {% endblock body %}
+    </main>
 
     <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
 </body>
