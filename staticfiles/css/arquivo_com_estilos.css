@@ -1,1 +1,459 @@
-/* Estilos do projeto */
+/* =====================================================
+   EventApp - estilo (painel lateral)
+   ===================================================== */
+
+/* ---------- CORES ---------- */
+:root {
+    /* cor principal (botoes, links) */
+    --cor: #2563eb;
+    --cor-hover: #1d4ed8;
+    --cor-sombra: rgba(37, 99, 235, .30);
+    --cor-foco: rgba(37, 99, 235, .18);
+    --cor-clara: #e6eeff;
+    /* fundo do botao Editar */
+    --cor-texto: #1e50c8;
+    /* texto do botao Editar */
+
+    /* menu lateral */
+    --menu-topo: #0f2747;
+    --menu-fundo: #0b1d38;
+    --menu-hover: #1c3d6b;
+    --menu-borda: #1a3558;
+    --menu-rodape: #6b86ab;
+    --menu-texto: #a9bddb;
+    --logo-1: #60a5fa;
+    --logo-2: #22d3ee;
+
+    /* pagina */
+    --fundo: #f3f6fb;
+    --fundo-claro: #f8faff;
+    --titulo: #0f2747;
+    --perigo: #d93a40;
+    /* Excluir */
+    --perigo-claro: #ffecee;
+}
+
+/* ---------- BASE ---------- */
+body {
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--fundo);
+    color: #2b2d42;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+a {
+    color: var(--cor);
+    text-decoration: none;
+}
+
+/* ---------- MENU LATERAL ---------- */
+nav {
+    width: 236px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 26px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background: linear-gradient(180deg, var(--menu-topo) 0%, var(--menu-fundo) 100%);
+}
+
+/* nome do sistema no topo */
+nav::before {
+    content: "EventApp";
+    margin: 0 10px 26px;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 30px;
+    letter-spacing: .3px;
+    background: linear-gradient(135deg, var(--logo-1), var(--logo-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* texto no rodape do menu */
+nav::after {
+    content: "A3 \00B7  Sistema de Ingressos";
+    margin-top: auto;
+    padding: 14px 10px 0;
+    border-top: 1px solid var(--menu-borda);
+    color: var(--menu-rodape);
+    font-size: 12px;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+}
+
+nav button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin: 0;
+    padding: 11px 14px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--menu-texto);
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+}
+
+nav button:hover {
+    background: var(--menu-hover);
+    color: #fff;
+}
+
+/* icone de cada botao (a imagem vem das variaveis --ico-... no fim do arquivo) */
+nav button::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background: currentColor;
+    -webkit-mask: var(--ico, var(--ico-ticket)) center / contain no-repeat;
+    mask: var(--ico, var(--ico-ticket)) center / contain no-repeat;
+}
+
+nav a[href="/"] button::before {
+    --ico: var(--ico-home);
+}
+
+nav a[href*="atracao"] button::before {
+    --ico: var(--ico-atracao);
+}
+
+nav a[href*="organizador"] button::before {
+    --ico: var(--ico-organizador);
+}
+
+nav a[href*="local"] button::before {
+    --ico: var(--ico-local);
+}
+
+nav a[href*="participante"] button::before {
+    --ico: var(--ico-participante);
+}
+
+nav a[href*="evento"] button::before {
+    --ico: var(--ico-evento);
+}
+
+nav a[href*="setor"] button::before {
+    --ico: var(--ico-setor);
+}
+
+nav a[href*="lote"] button::before {
+    --ico: var(--ico-lote);
+}
+
+nav a[href*="cupom"] button::before {
+    --ico: var(--ico-cupom);
+}
+
+nav a[href*="pedido"] button::before {
+    --ico: var(--ico-pedido);
+}
+
+nav a[href*="pagamento"] button::before {
+    --ico: var(--ico-pagamento);
+}
+
+nav a[href*="ingresso"] button::before {
+    --ico: var(--ico-ingresso);
+}
+
+nav a[href*="checkin"] button::before {
+    --ico: var(--ico-checkin);
+}
+
+/* ---------- CONTEUDO ---------- */
+main {
+    flex: 1;
+    min-width: 0;
+    padding: 36px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+main>br {
+    display: none;
+}
+
+/* titulo da pagina sempre no topo */
+main>b {
+    order: -1;
+    margin: 0 0 4px;
+    color: var(--titulo);
+    font-size: 26px;
+    font-weight: 800;
+}
+
+/* botao "Cadastro de novo ..." */
+main>a[href*="/adicionar/"] {
+    align-self: flex-start;
+    margin: 10px 0 6px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: var(--cor);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px var(--cor-sombra);
+    transition: transform .1s, background .15s;
+}
+
+main>a[href*="/adicionar/"]::before {
+    content: "+ ";
+    font-weight: 800;
+}
+
+main>a[href*="/adicionar/"]:hover {
+    background: var(--cor-hover);
+    transform: translateY(-1px);
+}
+
+/* ---------- TABELA ---------- */
+table {
+    width: 100%;
+    margin-top: 14px;
+    border: none;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(30, 27, 58, .06), 0 10px 30px rgba(30, 27, 58, .07);
+}
+
+th {
+    padding: 14px 18px;
+    border: none;
+    border-bottom: 1px solid #eceef6;
+    background: var(--fundo-claro);
+    color: #8a8ca5;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+td {
+    padding: 14px 18px;
+    border: none;
+    border-bottom: 1px solid #f1f2f8;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover td {
+    background: var(--fundo-claro);
+}
+
+td:first-child {
+    width: 48px;
+    color: #9a9cb5;
+    font-weight: 600;
+}
+
+td img {
+    display: block;
+    width: 64px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+}
+
+/* ---------- EDITAR / EXCLUIR ---------- */
+a[href*="/editar/"],
+a[href*="/excluir/"] {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: filter .15s;
+}
+
+a[href*="/editar/"] {
+    background: var(--cor-clara);
+    color: var(--cor-texto);
+}
+
+a[href*="/excluir/"] {
+    background: var(--perigo-claro);
+    color: var(--perigo);
+}
+
+a[href*="/editar/"]:hover,
+a[href*="/excluir/"]:hover {
+    filter: brightness(.95);
+}
+
+/* ---------- FORMULARIO ---------- */
+main form {
+    max-width: 480px;
+    margin-top: 16px;
+    padding: 30px 32px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(30, 27, 58, .06), 0 10px 30px rgba(30, 27, 58, .07);
+}
+
+form label {
+    color: #4a4c66;
+    font-size: 13.5px;
+    font-weight: 600;
+}
+
+form br+br {
+    display: none;
+}
+
+form input[type=text],
+form input[type=email],
+form input[type=number],
+form input[type=date],
+form input[type=datetime-local],
+form select,
+form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 6px 0 18px;
+    padding: 10px 12px;
+    border: 1px solid #dcdeea;
+    border-radius: 10px;
+    background: #fff;
+    color: #2b2d42;
+    font-size: 14px;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--cor);
+    box-shadow: 0 0 0 3px var(--cor-foco);
+}
+
+form input[type=file] {
+    margin: 6px 0 20px;
+    font-size: 13px;
+}
+
+form button[type=submit] {
+    padding: 11px 26px;
+    border: none;
+    border-radius: 10px;
+    background: var(--cor);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px var(--cor-sombra);
+}
+
+form button[type=submit]:hover {
+    background: var(--cor-hover);
+}
+
+/* ---------- ICONES ---------- */
+:root {
+    --ico-ticket: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6h18v4a2 2 0 0 0 0 4v4H3v-4a2 2 0 0 0 0-4z' fill='black'/%3E%3C/svg%3E");
+    --ico-home: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3z' fill='black'/%3E%3C/svg%3E");
+    --ico-atracao: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z' fill='black'/%3E%3C/svg%3E");
+    --ico-organizador: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 3h10v18H4zM16 9h4v12h-4z' fill='black'/%3E%3C/svg%3E");
+    --ico-local: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 6.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z' fill='black' fill-rule='evenodd'/%3E%3C/svg%3E");
+    --ico-participante: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM3 22a9 9 0 0 1 18 0z' fill='black'/%3E%3C/svg%3E");
+    --ico-evento: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 3h2v2h10V3h2v2h2v16H3V5h2zM5 9v10h14V9z' fill='black' fill-rule='evenodd'/%3E%3C/svg%3E");
+    --ico-setor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z' fill='black'/%3E%3C/svg%3E");
+    --ico-lote: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l10 5-10 5L2 7zM2 12l10 5 10-5v3l-10 5L2 15z' fill='black'/%3E%3C/svg%3E");
+    --ico-cupom: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 3h8l10 10-8 8L3 11z' fill='black'/%3E%3C/svg%3E");
+    --ico-pedido: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 7h12l1 14H5zM9 7a3 3 0 0 1 6 0h-2a1 1 0 0 0-2 0z' fill='black' fill-rule='evenodd'/%3E%3C/svg%3E");
+    --ico-pagamento: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2 5h20v4H2zM2 11h20v8H2z' fill='black'/%3E%3C/svg%3E");
+    --ico-ingresso: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 6h18v4a2 2 0 0 0 0 4v4H3v-4a2 2 0 0 0 0-4z' fill='black'/%3E%3C/svg%3E");
+    --ico-checkin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- PAGINA INICIAL ---------- */
+.hero {
+    margin-bottom: 24px;
+    padding: 40px 36px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--menu-topo), var(--cor));
+    color: #fff;
+    box-shadow: 0 10px 30px var(--cor-sombra);
+}
+
+.hero-titulo {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.hero p {
+    max-width: 560px;
+    margin: 0;
+    color: #dbe6ff;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.passos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.passo {
+    padding: 22px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(30, 27, 58, .06), 0 10px 30px rgba(30, 27, 58, .07);
+}
+
+.passo-numero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    background: var(--cor-clara);
+    color: var(--cor-texto);
+    font-weight: 800;
+}
+
+.passo h3 {
+    margin: 0 0 6px;
+    color: var(--titulo);
+    font-size: 16px;
+}
+
+.passo p {
+    margin: 0;
+    color: #6b7087;
+    font-size: 14px;
+    line-height: 1.5;
+}
